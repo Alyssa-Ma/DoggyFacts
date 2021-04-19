@@ -7,7 +7,9 @@ class Button extends React.Component {
         this.state = { 
             showImg: false,
             isCat: false,
-            isDog: false
+            isDog: false,
+            textResponse: '',
+            urlResponse: ''
         }
 
         this.handleClickClear = this.handleClickClear.bind(this);
@@ -19,25 +21,56 @@ class Button extends React.Component {
         this.setState({
           showImg: false,
           isCat: false,
-          isDog: false
+          isDog: false,
+          textResponse: '',
+          urlResponse: ''
         });
     }
 
     handleClickCat(event) {
-        this.setState({
-          showImg: true,
-          isCat: true,
-          isDog: false
-
-        });
+        //for text
+        fetch('https://cat-fact.herokuapp.com/facts/random?animal_type=cat&amount=1')
+            .then((res) => res.json())
+            .then((body) =>{
+                this.setState({
+                showImg: true,
+                isCat: true,
+                isDog: false,
+                textResponse: body.text
+                })
+            });
+        //for img
+        fetch('https://thatcopy.pw/catapi/rest/')
+            .then((res) => res.json())
+            .then((body) =>{
+                this.setState({
+                    urlResponse: body.url
+                })      
+            }); 
     }
 
     handleClickDog(event) {
-        this.setState({
-          showImg: true,
-          isCat: false,
-          isDog: true
-        });
+        //for text
+        //originally wanted to use this but got CORS errors
+        //https://dog-facts-api.herokuapp.com/api/v1/resources/dogs?number=1
+        fetch('https://cat-fact.herokuapp.com/facts/random?animal_type=dog&amount=1')
+            .then((res) => res.json())
+            .then((body) =>{
+                this.setState({
+                showImg: true,
+                isCat: true,
+                isDog: false,
+                textResponse: body.text
+                })
+            });
+        //for img
+        fetch('https://dog.ceo/api/breeds/image/random')
+            .then((res) => res.json())
+            .then((body) =>{
+                this.setState({
+                    urlResponse: body.message
+                })      
+            });
     }
 
     render(){
@@ -45,6 +78,9 @@ class Button extends React.Component {
         const showImg = this.state.showImg;
         const isCat = this.state.isCat;
         const isDog = this.state.isDog;
+        const fact = this.state.textResponse;
+        const img = this.state.urlResponse;
+
         return(
 
             
@@ -55,8 +91,8 @@ class Button extends React.Component {
                     <button onClick={ (e) => this.handleClickDog(e) }>Dog</button> </div>
                 }
 
-                {(showImg && isCat) && <IMG animal="Cat" />}
-                {(showImg && isDog) && <IMG animal="Dog" />}
+                {(showImg && isCat) && <IMG animal="Cat" text={fact} imgUrl={img}/>}
+                {(showImg && isDog) && <IMG animal="Dog" text={fact} imgUrl={img}/>}
 
                 
                 
