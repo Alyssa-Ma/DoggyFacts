@@ -33,8 +33,22 @@
     transition-duration: 0.5s;
     cursor: pointer;
     padding: 5px;
+
+    /* centering the button */
+    margin: auto;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 .clearButton:hover {
     background-color: #5ABFD6;
     color: white;
+}
+
+.titleHeader {
+    text-align: center;
+    font-family: Verdana, sans-serif;
+    font-size: 40px;
 }
