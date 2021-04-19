@@ -1,5 +1,6 @@
 import React from 'react';
 import IMG from './IMG'
+import "./Button.css"
 
 class Button extends React.Component {
     constructor() {
@@ -85,17 +86,13 @@ class Button extends React.Component {
 
             
             <div>
-                {showImg
-                    ? <button onClick={ (e) => this.handleClickClear(e) }>Clear</button> 
-                    : <div> <button onClick={ (e) => this.handleClickCat(e) }>Cat</button> 
-                    <button onClick={ (e) => this.handleClickDog(e) }>Dog</button> </div>
-                }
-
                 {(showImg && isCat) && <IMG animal="Cat" text={fact} imgUrl={img}/>}
                 {(showImg && isDog) && <IMG animal="Dog" text={fact} imgUrl={img}/>}
-
-                
-                
+                {showImg
+                    ? <button className="clearButton" onClick={ (e) => this.handleClickClear(e) }>Clear</button> 
+                    : <div className="grid-container"> <button className="mainButton catButton" onClick={ (e) => this.handleClickCat(e) }>Cat</button> 
+                    <button className="mainButton dogButton" onClick={ (e) => this.handleClickDog(e) }>Dog</button> </div>
+                }
             </div>
         )
     }
