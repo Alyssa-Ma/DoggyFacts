@@ -1,4 +1,5 @@
 import React from 'react';
+import './Img.css'
 
 class IMG extends React.Component {
     render(){
@@ -8,7 +9,7 @@ class IMG extends React.Component {
         
         return (
             <div>
-                <img src={imgUrl} />
+                <img className="img" src={imgUrl} />
                 <p>{fact}</p>
                 
             </div>

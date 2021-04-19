@@ -1,0 +1,54 @@
+.mainButton {
+    background-color: #66c599; 
+    color:white; 
+    border: 2px solid #52bdae;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    transition-duration: 0.5s;
+    cursor: pointer;
+}
+.mainButton:hover {
+    background-color: #5ABFD6;
+    color: white;
+} 
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: 150px 200px;
+    grid-gap: 20px;
+    padding-top: 320px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.clearButton {
+    background-color: #66c599; 
+    color:white; 
+    border: 2px solid #52bdae;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    transition-duration: 0.5s;
+    cursor: pointer;
+    padding: 5px;
+
+    /* centering the button */
+    margin: auto;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.clearButton:hover {
+    background-color: #5ABFD6;
+    color: white;
+}
+
+.titleHeader {
+    text-align: center;
+    font-family: Verdana, sans-serif;
+    font-size: 40px;
+}
