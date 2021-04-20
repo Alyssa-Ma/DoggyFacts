@@ -1,5 +1,9 @@
 **Animal Facts is a simple react app that gives a nice cat or dog fact along with a picture**
 
+Here is a deployed version of our app through Netlify: **https://determined-mcclintock-78637a.netlify.app/**
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
